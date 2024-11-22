@@ -29,11 +29,25 @@ PROGRAM :
 
 # lamp_power_app/models.py
     from django.db import models
+    from django.contrib import admin
     
     class PowerCalculation(models.Model):
         intensity = models.IntegerField()
         resistance = models.IntegerField()
         power = models.FloatField()
+
+    class PowerAdmin(admin.ModelAdmin):
+    list_display=('intensity','resistance','power')
+
+
+# lamp_power_app/admin.py
+
+        from django.contrib import admin
+        
+        from .models import PowerCalculation,PowerAdmin
+        
+        admin.site.register(PowerCalculation,PowerAdmin)
+    
 
 
 # lamp_power_app/views.py
@@ -52,6 +66,7 @@ PROGRAM :
     <h1>Lamp Filament Power Calculator</h1>
     
     <form method="post">
+        {% csrf_token %}
         <label for="intensity">Intensity (in lumens):</label>
         <input type="number" id="intensity" name="intensity" required><br><br>
     
@@ -66,9 +81,15 @@ PROGRAM :
     <p>The power of the lamp filament is {{ power }} watts.</p>
 
 
-SERVER SIDE PROCESSING:
+SERVER SIDE PROCESSING: 
+
+![image](https://github.com/user-attachments/assets/abbc4a73-baf8-47f7-975a-a46d5db2bc55)
+
 
 HOMEPAGE:
+
+![image](https://github.com/user-attachments/assets/7ff0f376-aeca-41d0-9365-61ca142da1e8)
+
 
 RESULT:
 The program for performing server side processing is completed successfully.
