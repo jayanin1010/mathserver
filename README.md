@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-# Date:08-11-2024
+# Date:19-10-2024
 # AIM:
 To design a website to calculate the power of a lamp filament in an incandescent bulb in the server side.
 
@@ -53,19 +53,57 @@ Publish the website in the given URL.
     ]
 
 
+
+# index.html
+
+     <body style="background-color: bisque;">
+     <center>
+     <h1>Lamp Filament Power Calculator</h1>
+ 
+     <form method="post">
+     {% csrf_token %}
+     <label for="intensity">Intensity (in lumens):</label>
+     <input type="number" id="intensity" name="intensity" required><br><br>
+ 
+     <label for="resistance">Resistance (in ohms):</label>
+     <input type="number" id="resistance" name="resistance" required><br><br>
+ 
+     <button type="submit">Calculate Power</button>
+     </form>
+     </center>
+     </body>
+
+
+
+
+# result.html
+
+     <body style="background-color: aquamarine;">
+ 
+     </body><center>
+ 
+     <h1>Result</h1>
+     <p>The power of the lamp filament is {{ power }} watts.</p>
+     </center>
+     </body>
+
+
 # SERVER SIDE PROCESSING:
 
-![alt text](image.png)
+
 
 ![image](https://github.com/user-attachments/assets/6ae130bd-6c12-4db9-b734-c83079a72a45)
 
+# Homepage 
+
+![alt text](image-1.png)
+
 ![image](https://github.com/user-attachments/assets/2b127eb1-f0a9-4d2c-9c77-3453d94020bf)
 
+![alt text](image.png)
 
 
 
-# HOMEPAGE:
-![alt text](image-1.png)
 
 
 
